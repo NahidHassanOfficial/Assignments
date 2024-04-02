@@ -20,9 +20,33 @@ calculateBtn.addEventListener("click", () => {
 
 function validateInput() {
   if (!isNaN(firstValue) && !isNaN(secondValue)) {
+    updateValidationStyle(true);
     calculate();
   } else {
+    updateValidationStyle(false);
     resultDiv.innerHTML = "Invalid input";
+  }
+}
+
+function updateValidationStyle(isValid) {
+  if (isValid) {
+    firstDigit.classList.remove("is-invalid");
+    secondDigit.classList.remove("is-invalid");
+    resultDiv.classList.remove("bg-danger");
+    resultDiv.classList.remove("text-danger-emphasis");
+
+    firstDigit.classList.add("is-valid");
+    secondDigit.classList.add("is-valid");
+    resultDiv.classList.add("bg-success");
+    resultDiv.classList.add("text-success-emphasis");
+  } else {
+    firstDigit.classList.remove("is-valid");
+    secondDigit.classList.remove("is-valid");
+
+    firstDigit.classList.add("is-invalid");
+    secondDigit.classList.add("is-invalid");
+    resultDiv.classList.add("bg-danger");
+    resultDiv.classList.add("text-danger-emphasis");
   }
 }
 

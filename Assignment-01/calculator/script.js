@@ -57,5 +57,7 @@ function calculate() {
   else if (operator == "*") result = firstValue * secondValue;
   else result = firstValue / secondValue;
 
+  if (firstValue + secondValue == 0 || secondValue == 0)
+    result = "Can't Divide!";
   resultDiv.innerHTML = result;
 }

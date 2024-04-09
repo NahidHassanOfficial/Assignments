@@ -52,6 +52,7 @@ img {
 }
 
 .contact {
+  margin-top: 15px;
   color: #ef5261;
   font-size: 17px;
   font-weight: bold;
@@ -62,9 +63,15 @@ img {
   width: 25px;
 }
 
+.contact a {
+  text-decoration: none;
+  color: #ef5261;
+}
+
 .mail,
 .phone {
   display: flex;
   align-items: center;
   gap: 10px;
+  height: 40px;
 }

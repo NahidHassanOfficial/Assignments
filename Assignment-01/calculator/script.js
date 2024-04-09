@@ -13,12 +13,13 @@ mathOperator.addEventListener("change", function () {
 });
 
 calculateBtn.addEventListener("click", () => {
-  firstValue = parseInt(firstDigit.value);
-  secondValue = parseInt(secondDigit.value);
   validateInput();
 });
 
 function validateInput() {
+  firstValue = parseInt(firstDigit.value);
+  secondValue = parseInt(secondDigit.value);
+
   if (!isNaN(firstValue) && !isNaN(secondValue)) {
     updateValidationStyle(true);
     calculate();

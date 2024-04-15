@@ -17,16 +17,20 @@ calculateBtn.addEventListener("click", () => {
 });
 
 function validateInput() {
-  firstValue = parseInt(firstDigit.value);
-  secondValue = parseInt(secondDigit.value);
+  if (isValidNumber(firstDigit.value) && isValidNumber(secondDigit.value)) {
+    firstValue = parseFloat(firstDigit.value);
+    secondValue = parseFloat(secondDigit.value);
 
-  if (!isNaN(firstValue) && !isNaN(secondValue)) {
     updateValidationStyle(true);
     calculate();
   } else {
     updateValidationStyle(false);
     resultDiv.innerHTML = "Invalid input";
   }
+}
+
+function isValidNumber(input) {
+  return /^-?[0-9]+(\.[0-9]+)?$/.test(input);
 }
 
 function updateValidationStyle(isValid) {
@@ -57,9 +61,13 @@ function calculate() {
   else if (operator == "-") result = firstValue - secondValue;
   else if (operator == "*") result = firstValue * secondValue;
   else {
-    result = firstValue / secondValue;
     if (firstValue + secondValue == 0 || secondValue == 0)
       result = "Can't Divide!";
+    else {
+      result = firstValue / secondValue;
+      let hasFraction = result % 1 !== 0;
+      if (hasFraction) result = result.toFixed(4);
+    }
   }
-  resultDiv.innerHTML = result.toString();
+  resultDiv.innerHTML = result;
 }

@@ -63,14 +63,22 @@ class Member
 
 }
 
+function printResult($book)
+{
+    printf("Available Copies of '%s': %d \n", $book->getTitle(), $book->getAvailableCopies());
+}
+
 $book1 = new Book("The Great Gatsby", 5);
 $book2 = new Book("To Kill a Mockingbird", 3);
 
 $member1 = new Member("John Doe");
 $member2 = new Member("John Smith");
 
-$member1->borrowBook($book1);
-$member2->borrowBook($book2);
+// $member1->borrowBook($book1);
+// $member2->borrowBook($book2);
 
-printf("Available Copies of '%s' : %d \n", $book1->getTitle(), $book1->getAvailableCopies());
-printf("Available Copies of '%s' : %d \n", $book2->getTitle(), $book2->getAvailableCopies());
+// printf("Available Copies of '%s': %d \n", $book1->getTitle(), $book1->getAvailableCopies());
+// printf("Available Copies of '%s': %d \n", $book2->getTitle(), $book2->getAvailableCopies());
+
+printResult($book1);
+printResult($book2);
